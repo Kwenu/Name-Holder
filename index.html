@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" 
+    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" 
+    crossorigin="anonymous"></script>
+    <title>Name Holder | Wenu Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap center">
+        <div class="wrap-label">
+            <label for="name">Your Name</label>
+        </div><br>
+        <input type="text" id="name">
+    </div>
+
+    <script>
+        $('input').focusin(function(){
+            $('label').transition({x:'80px'},500,'ease')
+            .next().transition({x:'5px'},500, 'ease')
+            setTimeout(function(){
+                $('label').next().addClass('move-pen');
+            },100);
+        });
+        $('input').focusout(function(){
+            $('label').transition({x:'0px'},800,'ease')
+            .next().transition({x:'-150px'},500,'ease')
+            .removeClass('move-pen');
+        });
+    </script>
+</body>
+</html>
